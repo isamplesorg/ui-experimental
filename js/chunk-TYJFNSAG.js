@@ -33,7 +33,7 @@ var _default_solr_columns = [
 ];
 var ISamplesAPI = class {
   constructor(options = {}) {
-    this.serviceEndpoint = options.serviceEndpoint || "https://dev.isample.xyz/";
+    this.serviceEndpoint = options.serviceEndpoint || "https://dev.isample.xyz/isamples_central/";
     if (options.records !== void 0) {
       this.solrColumns = options.records.columns || _default_solr_columns;
     } else {
