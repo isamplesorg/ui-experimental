@@ -12,7 +12,7 @@
         import {ISamplesSummary} from '../js/isamples-api.js';
         import {ISamplesSummaryView} from '../js/isamples-summary.js';
 
-        loadConfig("/local-config.jsonX")
+        loadConfig("/local-config.json")
         .then((options) => {
             options.appName = "isamplesapp";            
             globalThis.isamplesapp = new ISamplesApp(options);
