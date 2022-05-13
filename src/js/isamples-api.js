@@ -45,7 +45,7 @@ const _default_solr_columns =  [
 export class ISamplesAPI {
 
     constructor(options = {}) {
-        this.serviceEndpoint = options.serviceEndpoint || "https://dev.isample.xyz/";
+        this.serviceEndpoint = options.serviceEndpoint || "https://dev.isample.xyz/isamples_central/";
         if (options.records !== undefined) {
             this.solrColumns = options.records.columns || _default_solr_columns;
         } else {
