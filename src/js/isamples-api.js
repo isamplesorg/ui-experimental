@@ -46,6 +46,7 @@ export class ISamplesAPI {
 
     constructor(options = {}) {
         this.serviceEndpoint = options.serviceEndpoint || "https://dev.isample.xyz/isamples_central/";
+        //this.serviceEndpoint = "https://dev.isample.xyz/isamples_central/";
         if (options.records !== undefined) {
             this.solrColumns = options.records.columns || _default_solr_columns;
         } else {
@@ -98,12 +99,12 @@ export class ISamplesAPI {
     }
 
     thingStatus() {
-        const url = new URL(`/thing`, this.serviceEndpoint);
+        const url = new URL(`thing`, this.serviceEndpoint);
         return this._fetchPromise(url);
     }
 
     things(offset=0, limit=1000, status=200, authority=null){
-        const url = new URL(`/thing/`, this.serviceEndpoint);
+        const url = new URL(`thing/`, this.serviceEndpoint);
         url.searchParams.append("offset", offset);
         url.searchParams.append("limit", limit);
         url.searchParams.append("status", status);
@@ -132,7 +133,7 @@ export class ISamplesAPI {
      * @returns Promise to JSON response
      */
     thing(identifier, format="core") {
-        const url = new URL(`/thing/${encodeURIComponent(identifier)}`, this.serviceEndpoint);
+        const url = new URL(`thing/${encodeURIComponent(identifier)}`, this.serviceEndpoint);
         format = format.toLowerCase();
         if (!["core", "original", "solr"].includes(format)) {
             throw `Invalid format: ${format}`;
@@ -142,7 +143,7 @@ export class ISamplesAPI {
     }
 
     select(params={}) {
-        let _url = new URL("/thing/select", this.serviceEndpoint);
+        let _url = new URL("thing/select", this.serviceEndpoint);
         const fields = params["fields"] ?? ["*", ];
         delete params["fields"];
         const fq = params["fq"] ?? [];
@@ -189,7 +190,7 @@ export class ISamplesAPI {
             params["q"] = this.defaultQuery;
         }
 
-        let _url = new URL("/thing/stream", this.serviceEndpoint);
+        let _url = new URL("thing/stream", this.serviceEndpoint);
         let _params = _url.searchParams;        
         for (let key in params) {
             _params.append(key, params[key]);
