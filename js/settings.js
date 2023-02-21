@@ -2,7 +2,7 @@ import "./chunk-XVZR6UTJ.js";
 
 // src/js/settings.js
 var settings = {
-  serviceEndpoint: "https://mars.cyverse.org/isamples-central/",
+  serviceEndpoint: "https://hyde.cyverse.org/isamples_central/",
   defaultQuery: "*:*",
   records: {
     tableHeight: "40vh",
